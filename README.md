@@ -40,7 +40,8 @@ source venv/bin/activate
 ```
 python manage.py runserver
 ```
-* Como criar uma app:
+
+## *Como criar uma app*
 ```
 python manage.py startapp escola
 ```
@@ -50,7 +51,25 @@ Vá em escola -> views.py
 from django.http import JsonResponse
 
 def alunos(request):
-    pass
+    if request.method == 'GET':
+        aluno = {'id':1, 'nome':'Guilherme'}
+        return JsonResponse(aluno)
+```
+
+## *Como cadastrar uma url*
+
+* Quando for acessada uma URL ser visualizado o json com as requisições feitas por essa página. EX:
+
+Acesse setup -> urls.py e importe alunos da view de escola:
+```
+from escola.views import alunos
+```
+
+e crie um novo path para o retorno do json com os alunos
+```
+urlpatterns = [
+    path('alunos/', alunos),
+]
 ```
 
 ## *O que é uma API*
@@ -59,11 +78,16 @@ API é um núcleo comum de funcionalidades que pode ser usado por várias aplica
 
 A API será o contato direto entre uma aplicação e o servidor assim fazendo requisições e enviando respostas.
 
+OBS: uma API não renderiza uma página web.
 
 ## *Requisição GET*
 
 
-Aula Requisição GET : 2:34
+
+
+
+
+
 
 --------------------------------------------------------------------------------
 # Readme Glossary
