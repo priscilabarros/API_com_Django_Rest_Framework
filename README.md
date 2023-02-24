@@ -89,24 +89,24 @@ OBS: uma API não renderiza uma página web.
 Acesse o link: https://www.django-rest-framework.org/ para ver os comandos de instalação necessários.
 
 Abra o terminal dentro do projeto que esta trabalhando, com sua venv ativa e digite os comandos:
-´´´
+```
 pip install djangorestframework
 
 pip install markdown
-´´´
+```
 Acesse o arquivo de setup -> settings.py para indicar que o novo app django rest foi instalado.
-´´´#Application definition
+```#Application definition
 
 INSTALLED_APPS = [
     'rest_framework',
 ]
-´´´
+```
 ## *Criando um modelo*
 
 * Para que os dados da view reflitam os dados do banco de dados é necessário que um modelo seja criado. EX: no arquivo models.py crie uma classe para manter todas as informações de um aluno e um método para representar esse objeto aluno faça o mesmo para curso.
 
 Acesse escola -> models.py 
-´´´
+```
 from django.db import models
 
 class Aluno(models.Model):
@@ -130,24 +130,61 @@ class Curso(models.Model):
 
     def __str__(self):
         return self.descricao 
-´´´
+```
 
 * Após a criação do modelo é necessário fazer sua migração para o banco de dados. EX: 
 
 Acesse ao arquivo setup -> settings.py acrescente nos apps instalados escola.
 
-´´´
+```
 INSTALLED_APPS = [
     'escola',
 ]
-´´´
+```
 No terminal com sua venv ativada insira o comando:
-´´´
+```
 python manage.py makemigrations
 
 python manage.py migrate
-´´´
+```
 
+## *Django Admin*
+
+* Para configurar o Admin acesse o arquivo admin.py. EX:
+
+Acesse o arquivo escola -> admin.py
+```
+from django.contrib import admin
+from escola.models import Aluno, Curso
+
+class Alunos(admin.ModelAdmin):
+    list_display = ('id','nome','rg','cpf','data_nascimento')
+    list_display_links = ('id', 'nome')
+    search_fields = ('nome',)
+    list_per_page = 20
+
+admin.site.register(Aluno, Alunos)
+
+class Cursos(admin.ModelAdmin):
+    list_display = ('id','codigo_curso','descricao')
+    list_display_links = ('id', 'codigo_curso')
+    search_fields = ('codigo_curso',)
+
+admin.site.register(Curso, Cursos)
+
+```
+
+## *Criar um super user*
+
+* acesse o terminal com sua venv ativada e crie o super user. EX:
+```
+python manage.py createsuperuser
+```
+insira o email do super usuario e depois a senha
+login: darth@alura.com
+senha: 123
+ 
+Django Admin - 7:07
 --------------------------------------------------------------------------------
 # Readme Glossary
 
