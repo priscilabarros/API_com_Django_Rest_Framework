@@ -80,12 +80,29 @@ A API será o contato direto entre uma aplicação e o servidor assim fazendo re
 
 OBS: uma API não renderiza uma página web.
 
-## *Requisição GET*
+## *Django Rest Framework*
 
+é uma ferramenta para a construção de APIs e vai ajudar a gerenciar as urls e requisições no django.
 
+* Instalação:
 
+Acesse o link: https://www.django-rest-framework.org/ para ver os comandos de instalação necessários.
 
+Abra o terminal dentro do projeto que esta trabalhando, com sua venv ativa e digite os comandos:
+´´´
+pip install djangorestframework
+´´´
+´´´
+pip install markdown
+´´´
+Acesse o arquivo de setup -> settings.py para indicar que o novo app django rest foi instalado.
+´´´
+# Application definition
 
+INSTALLED_APPS = [
+    'rest_framework',
+]
+´´´
 
 
 
