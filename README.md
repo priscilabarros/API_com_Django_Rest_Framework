@@ -91,20 +91,62 @@ Acesse o link: https://www.django-rest-framework.org/ para ver os comandos de in
 Abra o terminal dentro do projeto que esta trabalhando, com sua venv ativa e digite os comandos:
 ´´´
 pip install djangorestframework
-´´´
-´´´
+
 pip install markdown
 ´´´
 Acesse o arquivo de setup -> settings.py para indicar que o novo app django rest foi instalado.
-´´´
-# Application definition
+´´´#Application definition
 
 INSTALLED_APPS = [
     'rest_framework',
 ]
 ´´´
+## *Criando um modelo*
 
+* Para que os dados da view reflitam os dados do banco de dados é necessário que um modelo seja criado. EX: no arquivo models.py crie uma classe para manter todas as informações de um aluno e um método para representar esse objeto aluno faça o mesmo para curso.
 
+Acesse escola -> models.py 
+´´´
+from django.db import models
+
+class Aluno(models.Model):
+    nome = models.Charfield(max_length=30)
+    rg = models.Charfield(max_length=9)
+    cpf = models.Charfield(max_length=11)
+    data_nascimento = models.Datefield()
+
+    def __str__(self):
+        return self.nome
+
+class Curso(models.Model):
+    NIVEL = (
+        ('B', 'Básico'),
+        ('I', 'Intermediário'),
+        ('A', 'Avançado')
+    )    
+    codigo_curso = models.Charfield(max_length=10)
+    descricao = models.Charfield(max_length=100)
+    nivel = models.Charfield(max_length=1, choices=NIVEL, blank=False, null=False, default='B')
+
+    def __str__(self):
+        return self.descricao 
+´´´
+
+* Após a criação do modelo é necessário fazer sua migração para o banco de dados. EX: 
+
+Acesse ao arquivo setup -> settings.py acrescente nos apps instalados escola.
+
+´´´
+INSTALLED_APPS = [
+    'escola',
+]
+´´´
+No terminal com sua venv ativada insira o comando:
+´´´
+python manage.py makemigrations
+
+python manage.py migrate
+´´´
 
 --------------------------------------------------------------------------------
 # Readme Glossary
