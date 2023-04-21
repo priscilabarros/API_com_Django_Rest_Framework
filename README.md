@@ -40,6 +40,22 @@ source venv/bin/activate
 ```
 python manage.py runserver
 ```
+## *Iniciando o projeto*
+
+* Ativar VENV -> Comando runserver
+
+* Você pode usar alguma IDE de escolha própria para abrir o projeto criado, no meu caso vou utilizar o Pycharm:
+Vá em File-> open -> "pasta_do_projeto"
+
+* Através do terminal do Pycharm localize a pasta da venv para que possamos ativá-la com o comando:
+```
+source venv/bin/activate
+``` 
+
+* Ainda no terminal do Pycharm inicie a aplicação com o comando abaixo, posteriormente você pode acessar a url http://localhost:8000/ para testar se aplicação esta rodando:
+```
+python manage.py runserver
+```
 
 ## *Como criar uma app*
 ```
