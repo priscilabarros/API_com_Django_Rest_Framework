@@ -200,7 +200,7 @@ insira o email do super usuario e depois a senha
 login: darth@alura.com
 senha: 123
  
-Django Admin - 7:07
+Django Admin - 7:07 continuar
 --------------------------------------------------------------------------------
 # Readme Glossary
 
