@@ -171,7 +171,7 @@ python manage.py migrate
 Acesse o arquivo escola -> admin.py
 ```
 from django.contrib import admin
-from escola.models import Aluno, Curso
+from .models import Aluno, Curso
 
 class Alunos(admin.ModelAdmin):
     list_display = ('id','nome','rg','cpf','data_nascimento')
@@ -200,6 +200,19 @@ insira o email do super usuario e depois a senha
 login: darth@alura.com
 senha: 123
  
+## *Criar uma view:*
+
+* vá em escola -> views.py:
+
+```
+from django.http import JsonResponse
+
+def alunos(request):
+    if request.method == 'GET':
+        aluno = {'id':1, 'nome':'Guilherme'}
+        return JsonResponse(aluno) 
+```
+
 Django Admin - 7:07 continuar
 --------------------------------------------------------------------------------
 # Readme Glossary
