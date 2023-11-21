@@ -212,6 +212,13 @@ def alunos(request):
         aluno = {'id':1, 'nome':'Guilherme'}
         return JsonResponse(aluno) 
 ```
+## *Dica:*
+
+* Você pode fazer uma busca geral em seu projeto por uma palavra chave
+ajudando a identificar um arquivo ou algum trecho de código. Para fazer 
+essa busca você pode ir em Navigate -> Search Everywhere ou utilizar o 
+atalho "double click SHIFT" que funciona pressionando rapidamente a tecla 
+SHIFT duas vezes
 
 Django Admin - 7:07 continuar
 --------------------------------------------------------------------------------
