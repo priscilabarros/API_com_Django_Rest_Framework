@@ -220,7 +220,39 @@ essa busca você pode ir em Navigate -> Search Everywhere ou utilizar o
 atalho "double click SHIFT" que funciona pressionando rapidamente a tecla 
 SHIFT duas vezes
 
-Django Admin - 7:07 continuar
+## *Pegar um aluno no BD e retornar um json:*
+
+* Vá em admin.py e em models.py para configurar a classe alunos e cursos:
+
+indicar o formato json no models.py para que a API do Django entenda
+de forma que a API leia o JSON e a aplicação veja em python;
+
+Isso é feito pelo arquivo serializer, que converte informações entre a API (JSON) e a aplicação (Python) também serve como
+um filtro para os dados que deseja ser disponibilizados para 
+API ou não. 
+
+Vá no seu projeto e crie um novo arquivo chamado seriallizer.py
+
+Ex: escola-> criar novo arquivo -> dê o nome de serializer.py
+
+```
+from rest_framework import serializers
+from escola.models import Aluno,Curso
+
+class AlunoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Aluno
+        fields = ['id','nome','rg','cpf','data_nascimento']
+
+class CursoSerializer(serializers.ModelSerializer):
+    class Meta:        
+        model = Curso    
+        fields = '_all_'
+
+```
+
+
+Django Admin - s7:07 continuar
 --------------------------------------------------------------------------------
 # Readme Glossary
 
