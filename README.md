@@ -251,6 +251,35 @@ class CursoSerializer(serializers.ModelSerializer):
 
 ```
 
+OBS: O Serializer permite que dados sejam convertidos para a forma
+python nativa para que a RM do Python possa entender facilmente 
+renderizadas em JSON, XML ou até outros tipos.
+
+* É necessário que a view indique quais dados foram filtrados ou 
+selecionados pelo serializer. 
+
+Viewset - este permite que a pessoa que está desenvolvendo a API
+consiga pensar na modelagem de negócio. 
+
+Vá em escola -> views.py 
+
+
+```
+from rest_framework import viewsets
+from escola.models import Aluno, Curso
+from serializer import AlunoSerializer, CursoSerializer
+
+class AlunosViewSet(viewsets.ModelViewSet):
+    """"Exibindo todos os alunos e alunas""""
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
+
+class CursosViewSet(viewsets.ModelViewSet):
+    """"Exibindo todos os cursos""""
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
+
+```
 
 Django Admin - s7:07 continuar
 --------------------------------------------------------------------------------
