@@ -281,6 +281,33 @@ class CursosViewSet(viewsets.ModelViewSet):
 
 ```
 
+* Configuração das rotas:
+Anteriormente as urls do sistema estavam sendo direcionados para o 
+retorno do ID do aluno de forma manual e fixa, no entanto precisamos ajustar as URLs para que sejam retornados todos os alunos do banco. De
+forma que os viewsets criados sejam utilizados.
+
+Vá em setup -> urls.py
+
+```
+from django.contrib import admin
+from django.urls import path, include
+from escola.views import AlunosViewSet, CursoViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('alunos',AlunosViewSet, basename='Alunos' )
+router.register('cursos',CursosViewSet, basename='Cursos')
+
+urlpatterns=[
+    path('admin/',admin.site.urls),
+    path('', include(router.urls))
+]
+
+```
+
+
+
+
 Django Admin - s7:07 continuar
 --------------------------------------------------------------------------------
 # Readme Glossary
