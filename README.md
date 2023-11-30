@@ -305,6 +305,15 @@ urlpatterns=[
 
 ```
 
+## *Método GET e POST:*
+
+* Pode ser criado um novo elemento somente com Django Rest no formato JSON.
+
+* O POST é uma requisição para ser criado um novo elemento.
+
+* Dica: Pode se usar o Postman para testar as APIs:
+
+
 
 
 
