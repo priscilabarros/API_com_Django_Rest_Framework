@@ -267,14 +267,14 @@ Vá em escola -> views.py
 ```
 from rest_framework import viewsets
 from escola.models import Aluno, Curso
-from serializer import AlunoSerializer, CursoSerializer
+from escola.serializer import AlunoSerializer, CursoSerializer
 
-class AlunosViewSet(viewsets.ModelViewSet):
+class AlunoViewSet(viewsets.ModelViewSet):
     """"Exibindo todos os alunos e alunas""""
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
 
-class CursosViewSet(viewsets.ModelViewSet):
+class CursoViewSet(viewsets.ModelViewSet):
     """"Exibindo todos os cursos""""
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
@@ -291,7 +291,7 @@ Vá em setup -> urls.py
 ```
 from django.contrib import admin
 from django.urls import path, include
-from escola.views import AlunosViewSet, CursoViewSet
+from escola.views import AlunoViewSet, CursoViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
