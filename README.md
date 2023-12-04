@@ -309,7 +309,10 @@ urlpatterns=[
 
 * Pode ser criado um novo elemento somente com Django Rest no formato JSON.
 
-* O POST é uma requisição para ser criado um novo elemento.
+* O POST é uma requisição da sua API para ser criado um novo elemento. Você está enviando dados para sua aplicação 
+
+* O GET é o recebimento de dados de um app ou de um local auxiliar para 
+sua API.
 
 * Dica: Pode se usar o Postman para testar as APIs:
 
