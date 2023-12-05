@@ -316,8 +316,45 @@ sua API.
 
 * Dica: Pode se usar o Postman para testar as APIs:
 
+1- faça download do Postman no site: https://www.postman.com/downloads/
+2- Instale o Postman no seu PC
+3- No Dropdown ao lado do campo de URL selecione o método desejado.
+4- insira a URL no campo "Enter request the URL" 
+5- clique no botão SEND
+6- a baixo verifique o retorno
 
 
+## *Método PUT e PATCH:*
+
+* O PUT e o PATCH são metódos utilizados para atualização no HTTP. 
+
+* O PUT substitui todos os dados atuais de um recurso de destino pelos dados
+passados na requisição. Exemplo: No caso de uma atualização completa de um 
+determinado recurso.
+
+* O PATCH permite que seja atualizado apenas um subconjunto de dados 
+de um determinado recurso
+
+* Testar o metodo PUT no Postman:
+
+1- faça download do Postman no site: https://www.postman.com/downloads/
+2- Instale o Postman no seu PC
+3- No Dropdown ao lado do campo de URL selecione o método GET (será necessário trazer os dados desejados para que possamos alterá-los)
+4- insira a URL no campo "Enter request the URL" 
+5- clique no botão SEND
+6- a baixo verifique o retorno
+7- No primeiro quadro abaixo verifique se as configurações estão adequadas:
+    7.1- O quadro deve esta na aba Body
+    7.2- O radio button RAW deve estar selecionado
+    7.3- O dropdown de tipo de documento a ser redigido deve marcar JSON
+8- No segundo quadro abaixo verifique se as configurações estão adequadas:
+    8.1- O quadro deve esta na aba Body
+    8.2- O quadro também deve esta na aba Pretty
+9- copie o JSON com a alteração desejada no primeiro quadro
+3- No Dropdown ao lado do campo de URL selecione o método PUT (será necessário enviar a alteração realizada dos dados desejados)
+4- insira a URL no campo "Enter request the URL" 
+5- clique no botão SEND
+6- a baixo verifique o retorno
 
 
 Django Admin - s7:07 continuar
