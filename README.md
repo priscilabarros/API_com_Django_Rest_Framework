@@ -356,8 +356,43 @@ de um determinado recurso
 5- clique no botão SEND
 6- a baixo verifique o retorno
 
+## *Método DELETE:*
 
-Django Admin - s7:07 continuar
+* Podemos deletar um aluno de nossa aplicação através de três caminhos diferentes:
+1 - Pela aplicação de fato;
+    1.1- Inicio -> Escola -> Alunos -> Determinado aluno -> DELETE;
+2 - Pelo Django REST API;
+    2.1- Utilizando a URL do aluno por exemplo http://localhost:8000/alunos/1/ logo em seguida apertando o botão DELETE;
+3 - Pelo Postman;
+    3.1- Utilizando a URL do aluno por exemplo http://localhost:8000/alunos/1/ logo em seguida enviando o método DELETE;
+
+OBS: Com os métodos anteriormente vistos podemos fazer o CRUD, tendo em vista:
+POST - Cria os elementos ( Create )
+GET - Retornar os elementos ( Read )
+PUT/PATCH - Atualiza os elementos ( Update )
+DELETE - Deleta os elementos ( Delete )
+
+## *Criar um relacionamento:*
+
+* Vamos criar um relacionamento entre ALUNO e CURSO, um relacionamento chamado
+matricula, pois assim saberemos os alunos que estão matriculados em cada curso.
+
+* Vá em models.py e crie uma nova classe matricula. Exemplo:
+
+```
+class Matricula(models.Model):
+    PERIODO = (
+        ('M','Matutino'),
+        ('V','Vespertino'),
+        ('N','Noturno'),
+    )
+    aluno = models.ForeignKey(Aluno,on_delete=models.CASCADE)
+    curso = models.ForeignKey(Curso,on_delete=models.CASCADE)
+    periodo = models.CharField(max_length=1, choices=PERIODO, blank=False, null=False,default='M')
+
+```
+
+Modelo de Matricula - 03:23 continuar
 --------------------------------------------------------------------------------
 # Readme Glossary
 
