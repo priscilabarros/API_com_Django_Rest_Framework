@@ -392,7 +392,29 @@ class Matricula(models.Model):
 
 ```
 
-Modelo de Matricula - 03:23 continuar
+* Vá em admin.py e crie uma propriedade matrícula. Exemplo:
+
+```
+from escola.models import Aluno, Curso, Matricula
+
+class Matriculas(admin.ModelAdmin):
+    list_display = ('id', 'aluno', 'curso', 'periodo')
+    list_display_links = ('id',)
+
+admin.site.register(Matricula,Matriculas)
+
+* Faça a migração do modelo para o banco de dados:
+
+- No terminal com a venv ativa digite: python manage.py makemigrations
+- Será criada a migração de Matriculas, agora digite: python manage.py migrate
+- As aplicações serão aplicadas no banco, agora digite: python manage.py runserver
+- O servidor deverá rodar para verificarmos a nova migração 
+
+ 
+
+```
+
+Recurso de Matricula -  continuar
 --------------------------------------------------------------------------------
 # Readme Glossary
 
